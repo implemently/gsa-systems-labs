@@ -17,7 +17,7 @@ Embedding evidence, controls, traceability, human review and responsible data pr
 
 ## Selected Projects
 
-### SignalScout
+### [SignalScout](case-studies/signalscout.md)
 AI-enabled digital intelligence for Nigerian Premier Football League clubs.
 
 ### TrackGuard
