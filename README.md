@@ -20,7 +20,7 @@ Embedding evidence, controls, traceability, human review and responsible data pr
 ### [SignalScout](case-studies/signalscout.md)
 AI-enabled digital intelligence for Nigerian Premier Football League clubs.
 
-### TrackGuard
+### [TrackGuard](case-studies/trackguard.md)
 A digital workflow and product project incorporating privacy, AI governance and operational design considerations.
 
 ### Decision Intelligence Lab
