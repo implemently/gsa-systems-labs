@@ -3,23 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GSA Systems Labs</title>
+
+  <title>GSA Systems Labs — GitHub Portfolio</title>
+
   <meta
     name="description"
-    content="AI-enabled systems for intelligence, governance and decision support."
+    content="GitHub portfolio documenting selected GSA Systems Labs projects, technical case studies and applied experiments in AI-enabled systems, product architecture and decision intelligence."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
   />
 
   <style>
     :root {
-      --bg: #07111a;
-      --panel: #0d1a25;
-      --panel-2: #102231;
-      --text: #f4f7fa;
-      --muted: #aab8c4;
-      --line: #1c3548;
-      --accent: #62b5ff;
-      --accent-soft: #163955;
-      --white: #ffffff;
+      --bg: #F7F8FA;
+      --surface: #FFFFFF;
+      --surface-soft: #F1F3F6;
+
+      --text: #111318;
+      --muted: #68707C;
+
+      --border: #E3E6EA;
+
+      --accent: #635BFF;
+      --accent-dark: #4D46D8;
+      --accent-soft: #EEF0FF;
+
+      --max-width: 1160px;
     }
 
     * {
@@ -32,10 +47,11 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Inter", Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -43,17 +59,20 @@
       text-decoration: none;
     }
 
-    .shell {
-      width: min(1180px, calc(100% - 40px));
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
       margin: 0 auto;
     }
 
+    /* NAV */
+
     header {
-      border-bottom: 1px solid var(--line);
-      background: rgba(7, 17, 26, 0.96);
+      background: rgba(247, 248, 250, 0.94);
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 20;
+      backdrop-filter: blur(10px);
     }
 
     .nav {
@@ -61,207 +80,370 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 30px;
     }
 
     .brand {
-      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
       font-weight: 700;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--accent);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
     }
 
     .nav-links {
       display: flex;
-      gap: 24px;
-      font-size: 14px;
+      gap: 28px;
+      align-items: center;
       color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
     }
 
     .nav-links a:hover {
-      color: var(--white);
+      color: var(--text);
     }
 
+    .github-link {
+      color: var(--text) !important;
+      font-weight: 600;
+    }
+
+    /* HERO */
+
     .hero {
-      padding: 96px 0 84px;
-      border-bottom: 1px solid var(--line);
-      background:
-        radial-gradient(circle at 75% 20%, rgba(98,181,255,0.12), transparent 34%),
-        linear-gradient(180deg, #08141e 0%, #07111a 100%);
+      padding: 112px 0 96px;
     }
 
     .eyebrow {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      border-radius: 999px;
       font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 20px;
+      font-weight: 600;
+      margin-bottom: 26px;
     }
 
     h1 {
-      font-size: clamp(42px, 7vw, 74px);
-      line-height: 1.02;
-      margin: 0 0 24px;
-      max-width: 860px;
+      margin: 0;
+      max-width: 950px;
+      font-size: clamp(44px, 6.6vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.052em;
+      font-weight: 700;
     }
 
-    .hero p {
+    .hero-copy {
       max-width: 760px;
+      margin-top: 28px;
       font-size: 20px;
+      line-height: 1.7;
       color: var(--muted);
-      margin: 0;
+    }
+
+    .hero-note {
+      max-width: 760px;
+      margin-top: 20px;
+      padding: 14px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     .hero-actions {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
+      gap: 12px;
       margin-top: 34px;
     }
 
-    .btn {
+    .button {
+      min-height: 46px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
       padding: 0 18px;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      font-weight: 700;
+      border-radius: 9px;
       font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #03111d;
-      border-color: var(--accent);
+    .button-primary {
+      background: var(--text);
+      color: white;
     }
 
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
+    .button-primary:hover {
+      opacity: 0.88;
     }
+
+    .button-secondary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .button-secondary:hover {
+      border-color: #C9CDD3;
+    }
+
+    /* GENERAL SECTION */
 
     section {
-      padding: 76px 0;
+      padding: 84px 0;
     }
 
-    .section-heading {
+    .section-top {
       max-width: 720px;
-      margin-bottom: 34px;
+      margin-bottom: 40px;
     }
 
-    .section-heading h2 {
-      font-size: 34px;
+    .section-kicker {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
       margin: 0 0 12px;
+      font-size: 38px;
+      line-height: 1.15;
+      letter-spacing: -0.035em;
     }
 
-    .section-heading p {
+    .section-top p {
       margin: 0;
       color: var(--muted);
+      font-size: 17px;
     }
 
-    .grid-3 {
+    /* AREAS */
+
+    .area-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
+      background: var(--border);
+      gap: 1px;
+      border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 24px;
+      overflow: hidden;
     }
 
-    .card h3 {
+    .area {
+      background: var(--surface);
+      padding: 30px;
+      min-height: 220px;
+    }
+
+    .area-number {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 54px;
+    }
+
+    .area h3 {
       margin: 0 0 12px;
-      font-size: 20px;
+      font-size: 19px;
+      letter-spacing: -0.02em;
     }
 
-    .card p {
+    .area p {
       margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* PROJECTS */
+
+    .projects-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 150px 1fr auto;
+      gap: 28px;
+      align-items: center;
+      padding: 28px 30px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: 0.2s ease;
+    }
+
+    .project:hover {
+      border-color: #C9CDD3;
+      transform: translateY(-1px);
+    }
+
+    .project-type {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .project h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      letter-spacing: -0.025em;
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .project-arrow {
+      font-size: 22px;
       color: var(--muted);
     }
 
-    .projects {
-      background: #09141d;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+    .coming-soon {
+      background: var(--surface-soft);
     }
 
-    .project-grid {
+    /* REPOSITORY CONTEXT */
+
+    .repo-context {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 22px;
     }
 
-    .project-card {
-      background: var(--panel-2);
-      border: 1px solid var(--line);
-      border-radius: 16px;
+    .repo-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
       padding: 28px;
-      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
-    .project-card:hover {
-      transform: translateY(-3px);
-      border-color: #2e5d7b;
+    .repo-card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
     }
 
-    .project-label {
+    .repo-card p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .repo-link {
       color: var(--accent);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-
-    .project-card h3 {
-      font-size: 26px;
-      margin: 0 0 12px;
-    }
-
-    .project-card p {
-      margin: 0 0 20px;
-      color: var(--muted);
-    }
-
-    .project-link {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .about-copy {
-      max-width: 820px;
-      font-size: 18px;
-      color: var(--muted);
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 0 40px;
-      color: var(--muted);
+      font-weight: 600;
       font-size: 14px;
     }
 
-    @media (max-width: 820px) {
-      .grid-3,
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
+    /* PRINCIPLE */
 
+    .principle {
+      padding: 90px 0;
+    }
+
+    .principle-box {
+      max-width: 930px;
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.25;
+      letter-spacing: -0.045em;
+      font-weight: 600;
+    }
+
+    .principle-box span {
+      color: var(--accent);
+    }
+
+    /* ABOUT */
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-copy {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .about-copy p:first-child {
+      margin-top: 0;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0 42px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 850px) {
       .nav-links {
         display: none;
       }
 
       .hero {
-        padding: 72px 0 64px;
+        padding: 82px 0 72px;
       }
 
-      .hero p {
-        font-size: 18px;
+      .area-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .project-arrow {
+        display: none;
+      }
+
+      .repo-context,
+      .about {
+        grid-template-columns: 1fr;
+        gap: 28px;
       }
     }
   </style>
@@ -270,134 +452,309 @@
 <body>
 
   <header>
-    <div class="shell nav">
-      <div class="brand">GSA Systems Labs</div>
+    <div class="container nav">
+
+      <div class="brand">
+        <div class="brand-mark">GSA</div>
+        GSA Systems Labs
+      </div>
 
       <nav class="nav-links">
-        <a href="#work">Areas of Work</a>
-        <a href="#projects">Projects</a>
+        <a href="#work">Work</a>
+        <a href="#projects">Case Studies</a>
+        <a href="#repository">Repository</a>
         <a href="#about">About</a>
+        <a
+          class="github-link"
+          href="https://github.com/implemently/gsa-systems-labs"
+        >
+          View on GitHub ↗
+        </a>
       </nav>
+
     </div>
   </header>
 
   <main>
 
     <section class="hero">
-      <div class="shell">
-        <div class="eyebrow">Applied AI • Intelligence • Governance</div>
 
-        <h1>AI-enabled systems for intelligence, governance and decision support.</h1>
+      <div class="container">
 
-        <p>
-          We explore, design and build practical systems that combine data,
-          AI, automation and structured workflows to solve operational and
-          decision-making problems.
-        </p>
+        <div class="eyebrow">
+          GitHub Portfolio · Applied AI · Product Systems
+        </div>
+
+        <h1>
+          Selected work in AI-enabled systems, product architecture and decision intelligence.
+        </h1>
+
+        <div class="hero-copy">
+          This repository documents selected GSA Systems Labs projects,
+          technical case studies and applied experiments across AI,
+          intelligence systems, governance and decision support.
+        </div>
+
+        <div class="hero-note">
+          This GitHub Pages site is the public portfolio layer for the
+          <strong>gsa-systems-labs</strong> repository. Project documentation,
+          case studies and source materials are maintained in GitHub.
+        </div>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">Explore Projects</a>
-          <a class="btn btn-secondary" href="https://github.com/implemently/gsa-systems-labs">
-            View GitHub
+
+          <a class="button button-primary" href="#projects">
+            Browse case studies
           </a>
+
+          <a
+            class="button button-secondary"
+            href="https://github.com/implemently/gsa-systems-labs"
+          >
+            Open repository
+          </a>
+
         </div>
+
       </div>
+
     </section>
 
     <section id="work">
-      <div class="shell">
-        <div class="section-heading">
-          <h2>Areas of Work</h2>
+
+      <div class="container">
+
+        <div class="section-top">
+
+          <div class="section-kicker">Areas documented here</div>
+
+          <h2>Applied systems, not AI for its own sake.</h2>
+
           <p>
-            Applied systems work focused on turning complex information and
-            operational requirements into usable intelligence and workflows.
+            The repository documents projects that explore how intelligence,
+            automation, product architecture and governance can be designed
+            into useful digital systems.
           </p>
+
         </div>
 
-        <div class="grid-3">
+        <div class="area-grid">
 
-          <div class="card">
+          <div class="area">
+            <div class="area-number">01</div>
+
             <h3>AI-Enabled Intelligence Systems</h3>
+
             <p>
               Turning fragmented information into structured signals,
               evidence-backed intelligence and decision support.
             </p>
           </div>
 
-          <div class="card">
+          <div class="area">
+            <div class="area-number">02</div>
+
             <h3>Operational Digital Systems</h3>
+
             <p>
-              Designing workflows, applications and automation around real
-              business processes.
+              Designing applications, workflows and automation around
+              real operational processes.
             </p>
           </div>
 
-          <div class="card">
+          <div class="area">
+            <div class="area-number">03</div>
+
             <h3>AI & Data Governance</h3>
+
             <p>
-              Embedding evidence, controls, traceability, human review and
-              responsible data practices into AI-enabled systems.
+              Building traceability, evidence, controls, review and responsible
+              data practices into AI-enabled systems.
             </p>
           </div>
 
         </div>
+
       </div>
+
     </section>
 
-    <section id="projects" class="projects">
-      <div class="shell">
+    <section id="projects" class="projects-section">
 
-        <div class="section-heading">
-          <h2>Selected Projects</h2>
+      <div class="container">
+
+        <div class="section-top">
+
+          <div class="section-kicker">Repository case studies</div>
+
+          <h2>Selected projects and technical work.</h2>
+
           <p>
-            Applied projects exploring evidence, intelligence, automation and
-            decision-support architecture.
+            Each case study documents the product problem, system approach,
+            architecture decisions and lessons emerging from the work.
           </p>
+
         </div>
 
-        <div class="project-grid">
+        <div class="projects-grid">
 
-          <a class="project-card" href="case-studies/signalscout.md">
-            <div class="project-label">AI Intelligence</div>
-            <h3>SignalScout</h3>
-            <p>
-              AI-enabled digital intelligence for Nigerian Premier Football
-              League clubs.
-            </p>
-            <span class="project-link">View case study →</span>
+          <a
+            class="project"
+            href="case-studies/signalscout.md"
+          >
+
+            <div class="project-type">
+              Intelligence
+            </div>
+
+            <div>
+              <h3>SignalScout</h3>
+
+              <p>
+                AI-enabled digital intelligence for Nigerian Premier Football
+                League clubs.
+              </p>
+            </div>
+
+            <div class="project-arrow">→</div>
+
           </a>
 
-          <a class="project-card" href="case-studies/trackguard.md">
-            <div class="project-label">Evidence & Opportunity Intelligence</div>
-            <h3>TrackGuard</h3>
-            <p>
-              An AI-enabled evidence and decision-support system for the
-              creative economy.
-            </p>
-            <span class="project-link">View case study →</span>
+          <a
+            class="project"
+            href="case-studies/trackguard.md"
+          >
+
+            <div class="project-type">
+              Evidence Systems
+            </div>
+
+            <div>
+              <h3>TrackGuard</h3>
+
+              <p>
+                AI-enabled evidence and opportunity intelligence for the
+                creative economy.
+              </p>
+            </div>
+
+            <div class="project-arrow">→</div>
+
           </a>
 
-          <div class="project-card">
-            <div class="project-label">Exploration</div>
-            <h3>Decision Intelligence Lab</h3>
-            <p>
-              An emerging exploration of customer, market and competitive
-              signal intelligence for corporate decision-making.
-            </p>
-            <span class="project-link">In development</span>
+          <div class="project coming-soon">
+
+            <div class="project-type">
+              Exploration
+            </div>
+
+            <div>
+              <h3>Decision Intelligence Lab</h3>
+
+              <p>
+                Exploring customer, market and competitive signal intelligence
+                for corporate decision-making.
+              </p>
+            </div>
+
           </div>
 
         </div>
+
       </div>
+
+    </section>
+
+    <section id="repository">
+
+      <div class="container">
+
+        <div class="section-top">
+
+          <div class="section-kicker">Repository</div>
+
+          <h2>Documentation lives in GitHub.</h2>
+
+          <p>
+            This Pages view is a visual index. The repository remains the
+            primary location for case-study files, project notes and technical
+            documentation.
+          </p>
+
+        </div>
+
+        <div class="repo-context">
+
+          <div class="repo-card">
+
+            <h3>Browse the repository</h3>
+
+            <p>
+              View the project structure, Markdown case studies, commit
+              history and future technical documentation directly in GitHub.
+            </p>
+
+            <a
+              class="repo-link"
+              href="https://github.com/implemently/gsa-systems-labs"
+            >
+              github.com/implemently/gsa-systems-labs ↗
+            </a>
+
+          </div>
+
+          <div class="repo-card">
+
+            <h3>How this portfolio is used</h3>
+
+            <p>
+              GSA Systems Labs uses this repository to document applied
+              product work, architecture decisions, experiments and selected
+              implementation lessons without presenting this Pages site as
+              the lab's standalone corporate website.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="principle">
+
+      <div class="container">
+
+        <div class="principle-box">
+
+          We are interested in the space between
+          <span>raw information</span>,
+          trustworthy evidence and
+          better decisions.
+
+        </div>
+
+      </div>
+
     </section>
 
     <section id="about">
-      <div class="shell">
-        <div class="section-heading">
-          <h2>About GSA Systems Labs</h2>
+
+      <div class="container about">
+
+        <div>
+
+          <div class="section-kicker">
+            About the team
+          </div>
+
+          <h2>GSA Systems Labs</h2>
+
         </div>
 
         <div class="about-copy">
+
           <p>
             GSA Systems Labs is an independent technology and product lab
             founded by two partners exploring how AI, automation, data and
@@ -406,20 +763,32 @@
           </p>
 
           <p>
-            Our work spans product development, intelligence systems,
-            workflow automation, data-driven decision support and
-            governance-by-design.
+            This repository serves as a public technical portfolio documenting
+            selected projects, architecture thinking and applied systems work.
           </p>
+
         </div>
+
       </div>
+
     </section>
 
   </main>
 
   <footer>
-    <div class="shell">
-      GSA Systems Labs
+
+    <div class="container footer-inner">
+
+      <span>
+        GSA Systems Labs · GitHub project portfolio
+      </span>
+
+      <a href="https://github.com/implemently/gsa-systems-labs">
+        View repository ↗
+      </a>
+
     </div>
+
   </footer>
 
 </body>
